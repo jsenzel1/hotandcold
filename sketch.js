@@ -74,7 +74,7 @@ function setup() {
   // pinDropRange = .00035;
   pinDropRange = .0035 / 2;
 
-  randomSeed(month() + day() + year()+2);
+  randomSeed(month() + day() + year() + 2);
 
   createCanvas(windowWidth, windowHeight);
 
@@ -138,7 +138,7 @@ function draw() {
     //calcDist = map(d, 0, initD, 100, 0, true);
 
 
-    if(millis() > 4000){
+    if (millis() > 4000) {
       calcDist = map(d, initD * 2, 0, -100, 100, true);
     } else {
       calcDist = 0;
@@ -231,9 +231,9 @@ function positionUpdated(position) {
 
   //print(_lon);
 
-  
+
   d = dist(_lat, _lon, targetLat, targetLon);
-  
+
 
   checkCounter++;
 
@@ -293,31 +293,31 @@ function posCheckAudio() {
 
   //if (millis > 5) {
 
-    if ((calcDist - oldCalcDist) > 7) {
+  if ((calcDist - oldCalcDist) > 7) {
 
-      curArr = badClips;
+    curArr = badClips;
 
-      randomSeed(millis());
-      curArr[int(random(0, curArr.length))].play();
-      randomSeed(month() + day() + year());
+    randomSeed(millis());
+    //curArr[int(random(0, curArr.length))].play();
+    randomSeed(month() + day() + year());
 
-      oldCalcDist = calcDist;
+    oldCalcDist = calcDist;
 
-    }
+  }
 
-    if ((calcDist - oldCalcDist) < -7) {
+  if ((calcDist - oldCalcDist) < -7) {
 
-      curArr = goodClips;
+    curArr = goodClips;
 
-      randomSeed(millis());
+    randomSeed(millis());
 
-      curArr[int(random(0, curArr.length))].play();
-      randomSeed(month() + day() + year());
+    //curArr[int(random(0, curArr.length))].play();
+    randomSeed(month() + day() + year());
 
 
-      oldCalcDist = calcDist;
+    oldCalcDist = calcDist;
 
-    }
+  }
   //}
 
 
